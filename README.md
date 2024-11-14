@@ -405,7 +405,7 @@ Users can select and activate different control layers (e.g., edge detection, de
 
 - **Merge 2 images**
 
-![image](https://github.com/user-attachments/assets/1ae16c29-5a01-40be-89ae-1d8c6c065e22)
+![image](https://github.com/user-attachments/assets/d3e6e42b-de1b-4917-a633-e355cb16e4db)
 
 **Goal**
 
