@@ -1,0 +1,1030 @@
+{
+  "last_node_id": 20,
+  "last_link_id": 21,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "KSampler",
+      "pos": {
+        "0": 1327.914306640625,
+        "1": 94.85624694824219
+      },
+      "size": {
+        "0": 315,
+        "1": 262
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 2
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 3
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            7
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        73123675865862,
+        "randomize",
+        30,
+        7,
+        "dpmpp_2m",
+        "karras",
+        1
+      ]
+    },
+    {
+      "id": 2,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 427.9129333496094,
+        "1": 94.85624694824219
+      },
+      "size": {
+        "0": 422.84503173828125,
+        "1": 164.31304931640625
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            12
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "3D rendered futuristic building, epic and beautifully designed architecture, sleek and tall structure with smooth curves and geometric shapes, large glass panels and metallic surfaces that reflect light, illuminated accents with soft, glowing neon lights, advanced and high-tech appearance, surrounded by minimal landscaping or futuristic urban setting, intricate details with suspended walkways, open spaces, and transparent elements, capturing a grand and awe-inspiring presence"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 3,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 447.9129333496094,
+        "1": 294.857177734375
+      },
+      "size": {
+        "0": 393.40631103515625,
+        "1": 76
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 6
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            13
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "ugly"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 4,
+      "type": "VAEDecode",
+      "pos": {
+        "0": 1687.914306640625,
+        "1": 104.85624694824219
+      },
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            9,
+            18
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 5,
+      "type": "SaveImage",
+      "pos": {
+        "0": 1317.914306640625,
+        "1": 444.857177734375
+      },
+      "size": {
+        "0": 382.1387634277344,
+        "1": 372.00054931640625
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 9
+        }
+      ],
+      "outputs": [],
+      "title": "Save Final Image",
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "AIO_Preprocessor",
+      "pos": {
+        "0": 617.9129028320312,
+        "1": 854.855224609375
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            11,
+            15
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AIO_Preprocessor"
+      },
+      "widgets_values": [
+        "CannyEdgePreprocessor",
+        1024
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 7,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 967.9138793945312,
+        "1": 854.855224609375
+      },
+      "size": {
+        "0": 263.3109130859375,
+        "1": 306.7424621582031
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 11
+        }
+      ],
+      "outputs": [],
+      "title": "Preview Image from Preprocessor",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 8,
+      "type": "ControlNetApplyAdvanced",
+      "pos": {
+        "0": 957.9140014648438,
+        "1": 94.85624694824219
+      },
+      "size": {
+        "0": 315,
+        "1": 186
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 12
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 13
+        },
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 14
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 15
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 16,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            2
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            3
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ControlNetApplyAdvanced"
+      },
+      "widgets_values": [
+        0.9,
+        0,
+        0.6
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 9,
+      "type": "ControlNetLoader",
+      "pos": {
+        "0": 387.9129333496094,
+        "1": 704.8560791015625
+      },
+      "size": {
+        "0": 422.2481384277344,
+        "1": 58
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
+          "links": [
+            14
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ControlNetLoader"
+      },
+      "widgets_values": [
+        "diffusion_pytorch_model_promax.safetensors"
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 10,
+      "type": "Label (rgthree)",
+      "pos": {
+        "0": 957.9140014648438,
+        "1": 294.857177734375
+      },
+      "size": [
+        337.0859375,
+        72
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "strength between 0.3 and 1\nend_percent between 0.1 and 1\nCloser to 0 is more creative,\ncloser to 1 matches the uploaded image better\n",
+      "properties": {
+        "fontSize": 16,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "center",
+        "backgroundColor": "#573931",
+        "padding": 4,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 11,
+      "type": "Label (rgthree)",
+      "pos": {
+        "0": 507.9129638671875,
+        "1": 774.8560791015625
+      },
+      "size": [
+        223.21875,
+        24
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "select SDXL control net model\n",
+      "properties": {
+        "fontSize": 16,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "center",
+        "backgroundColor": "#573931",
+        "padding": 4,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 12,
+      "type": "Label (rgthree)",
+      "pos": {
+        "0": 287.9109802246094,
+        "1": 1294.8538818359375
+      },
+      "size": [
+        241.0078125,
+        24
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Click on Edit and Start Sketching\n",
+      "properties": {
+        "fontSize": 16,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "center",
+        "backgroundColor": "#573931",
+        "padding": 4,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 13,
+      "type": "Note",
+      "pos": {
+        "0": 617.9129028320312,
+        "1": 984.855224609375
+      },
+      "size": [
+        313.6929626464844,
+        217.29412841796875
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Choose a preprocessor\n\nExamples:\nCannyEdgePreprocessor\nLineArtPreprocesor\nAnimeLineArtPreprocessor\nLineartStandardPreprocessor\nManga2Anime_LineArt_Preprocessor\nHEDPreprocessor\nSribble_XDog_Preprocessor\nPyraCannyPreprocessor\n\n\nDepthAnythingPreprocessor\n"
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 14,
+      "type": "Image Comparer (rgthree)",
+      "pos": {
+        "0": 1737.914306640625,
+        "1": 244.8582000732422
+      },
+      "size": {
+        "0": 649.4041137695312,
+        "1": 694.4627075195312
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_a",
+          "type": "IMAGE",
+          "link": 17,
+          "dir": 3
+        },
+        {
+          "name": "image_b",
+          "type": "IMAGE",
+          "link": 18,
+          "dir": 3
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "comparer_mode": "Slide"
+      },
+      "widgets_values": [
+        [
+          {
+            "name": "A",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_paybn_00003_.png&type=temp&subfolder=&rand=0.6516354506225128"
+          },
+          {
+            "name": "B",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_paybn_00004_.png&type=temp&subfolder=&rand=0.7247965410311967"
+          }
+        ]
+      ]
+    },
+    {
+      "id": 16,
+      "type": "Canvas_Tab",
+      "pos": {
+        "0": 247.91098022460938,
+        "1": 864.855224609375
+      },
+      "size": {
+        "0": 334.73736572265625,
+        "1": 416.7881774902344
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            10,
+            17
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Canvas_Tab"
+      },
+      "widgets_values": [
+        false,
+        "bingo",
+        "",
+        ""
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 17,
+      "type": "EmptySD3LatentImage",
+      "pos": {
+        "0": 525.9129638671875,
+        "1": 429.857177734375
+      },
+      "size": {
+        "0": 210,
+        "1": 78
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 19,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 20,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            4
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptySD3LatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 18,
+      "type": "FluxResolutionNode",
+      "pos": {
+        "0": 157.85629272460938,
+        "1": 423.732177734375
+      },
+      "size": {
+        "0": 327.5999755859375,
+        "1": 170
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            19
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            20
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "resolution",
+          "type": "STRING",
+          "links": [
+            21
+          ],
+          "slot_index": 2,
+          "shape": 3
+        }
+      ],
+      "title": "SDXL Resolution Calculator",
+      "properties": {
+        "Node name for S&R": "FluxResolutionNode"
+      },
+      "widgets_values": [
+        "1.0",
+        "1:1 (Perfect Square)",
+        false,
+        "1:1"
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 19,
+      "type": "easy showAnything",
+      "pos": {
+        "0": 524.9129638671875,
+        "1": 549.8560791015625
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 21,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Preview Resolution",
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "1024 x 1024"
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 20,
+      "type": "Label (rgthree)",
+      "pos": {
+        "0": 1909.859375,
+        "1": 954.730224609375
+      },
+      "size": [
+        345.0703125,
+        24
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Move the Mouse Left and Right Over the Image\n",
+      "properties": {
+        "fontSize": 16,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "center",
+        "backgroundColor": "",
+        "padding": 4,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 15,
+      "type": "CheckpointLoaderSimple",
+      "pos": {
+        "0": 27.3333740234375,
+        "1": 104.66665649414062
+      },
+      "size": {
+        "0": 379.97589111328125,
+        "1": 98
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            5,
+            6
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            8,
+            16
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "Juggernaut_X_RunDiffusion.safetensors"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      15,
+      0,
+      1,
+      0,
+      "MODEL"
+    ],
+    [
+      2,
+      8,
+      0,
+      1,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      3,
+      8,
+      1,
+      1,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      4,
+      17,
+      0,
+      1,
+      3,
+      "LATENT"
+    ],
+    [
+      5,
+      15,
+      1,
+      2,
+      0,
+      "CLIP"
+    ],
+    [
+      6,
+      15,
+      1,
+      3,
+      0,
+      "CLIP"
+    ],
+    [
+      7,
+      1,
+      0,
+      4,
+      0,
+      "LATENT"
+    ],
+    [
+      8,
+      15,
+      2,
+      4,
+      1,
+      "VAE"
+    ],
+    [
+      9,
+      4,
+      0,
+      5,
+      0,
+      "IMAGE"
+    ],
+    [
+      10,
+      16,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      11,
+      6,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      12,
+      2,
+      0,
+      8,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      13,
+      3,
+      0,
+      8,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      14,
+      9,
+      0,
+      8,
+      2,
+      "CONTROL_NET"
+    ],
+    [
+      15,
+      6,
+      0,
+      8,
+      3,
+      "IMAGE"
+    ],
+    [
+      16,
+      15,
+      2,
+      8,
+      4,
+      "VAE"
+    ],
+    [
+      17,
+      16,
+      0,
+      14,
+      0,
+      "IMAGE"
+    ],
+    [
+      18,
+      4,
+      0,
+      14,
+      1,
+      "IMAGE"
+    ],
+    [
+      19,
+      18,
+      0,
+      17,
+      0,
+      "INT"
+    ],
+    [
+      20,
+      18,
+      1,
+      17,
+      1,
+      "INT"
+    ],
+    [
+      21,
+      18,
+      2,
+      19,
+      0,
+      "*"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Drawing to image",
+      "bounding": [
+        3,
+        5,
+        2426,
+        1348
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1,
+      "offset": [
+        0,
+        0
+      ]
+    }
+  },
+  "version": 0.4
+}

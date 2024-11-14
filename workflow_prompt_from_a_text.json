@@ -1,0 +1,130 @@
+{
+  "last_node_id": 32,
+  "last_link_id": 31,
+  "nodes": [
+    {
+      "id": 30,
+      "type": "easy showAnything",
+      "pos": {
+        "0": 846,
+        "1": 46
+      },
+      "size": {
+        "0": 532.684814453125,
+        "1": 634.9594116210938
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 31,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Show Prompt",
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "A playful little rabbit sitting on a large rock at the edge of a serene river in a whimsical, watercolor style where lush greenery and colorful wildflowers surround the riverbank, and a few puffy white clouds drift lazily across a bright blue sky, all depicted with a soft, pastel color palette with warm golden lighting and featuring delicate petals on the flowers, intricate patterns on the rabbit's fur, and ripples in the water where it has been splashing its paws."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 32,
+      "type": "OllamaGenerateAdvance",
+      "pos": {
+        "0": 415,
+        "1": 47
+      },
+      "size": {
+        "0": 414.3514404296875,
+        "1": 634.292724609375
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "context",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "context"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            31
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "context",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaGenerateAdvance"
+      },
+      "widgets_values": [
+        "a cute bunny next to a river",
+        false,
+        "http://127.0.0.1:11434",
+        "llama3.2:3b",
+        "Generate a detailed, continuous prompt.\nThe prompt should include the following components seamlessly integrated:\n1. Subject/Scene: Start with the main focus of the image.\n2. Additional Elements: Include any secondary details or background elements that complement the main subject.\n3. Artistic Style/Effect: Describe the visual style or effect desired for the image.\n4. Color Palette/Lighting: Specify the colors and lighting to set the mood of the image.\n5. Specific Details: Add any intricate details or specific visual features that should be emphasized.\nOutput Format:\nEnsure the output is provided within a code block using the following structure:\nA [Subject/Scene] in a [Artistic Style/Effect] where [Additional Elements] are present, all depicted with [Color Palette/Lighting] and featuring [Specific Details].\nExample Output:\nA medieval castle on a hill during a thunderstorm in a gothic, dark fantasy style where dense, dark forests surround the castle, and lightning strikes in the distance, illuminating a river winding through the valley below, all depicted with a muted, dark color palette with flashes of bright white and blue from the lightning, and featuring crumbling walls with overgrown ivy, a slightly open drawbridge, and a dim, flickering light visible inside the castle.",
+        990690170,
+        "randomize",
+        40,
+        0.9,
+        0.8,
+        -1,
+        1,
+        5,
+        false,
+        "",
+        ""
+      ]
+    }
+  ],
+  "links": [
+    [
+      31,
+      32,
+      0,
+      30,
+      0,
+      "*"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.1918176537727272,
+      "offset": [
+        -183.96951129728373,
+        37.22006301544021
+      ]
+    }
+  },
+  "version": 0.4
+}

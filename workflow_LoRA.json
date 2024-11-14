@@ -1,0 +1,515 @@
+{
+  "last_node_id": 10,
+  "last_link_id": 13,
+  "nodes": [
+    {
+      "id": 10,
+      "type": "workflow>LoRA",
+      "pos": {
+        "0": 206.61050415039062,
+        "1": 110.69683837890625
+      },
+      "size": {
+        "0": 403.3311767578125,
+        "1": 667.3550415039062
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            13
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "workflow>LoRA"
+      },
+      "widgets_values": [
+        "flux1-schnell-bnb-nf4.safetensors",
+        1024,
+        1024,
+        1,
+        "glowneon_xl_v1.safetensors",
+        1,
+        1,
+        "glowneon, A glowing rabbit sitting on a large rock at the edge of a serene river at night with sparks, blue, white, yellow.",
+        "ugly, watermark",
+        561187032580630,
+        "fixed",
+        35,
+        7,
+        "dpmpp_2m",
+        "karras",
+        1
+      ]
+    },
+    {
+      "id": 1,
+      "type": "SaveImage",
+      "pos": {
+        "0": 642.6104736328125,
+        "1": 106.69683837890625
+      },
+      "size": {
+        "0": 748.2265014648438,
+        "1": 675.33447265625
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 13
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    }
+  ],
+  "links": [
+    [
+      13,
+      10,
+      0,
+      1,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "LoRA",
+      "bounding": [
+        176,
+        14,
+        1250,
+        795
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "groupNodes": {
+      "LoRA": {
+        "nodes": [
+          {
+            "id": -1,
+            "type": "CheckpointLoaderSimple",
+            "pos": {
+              "0": 399,
+              "1": 232.99998474121094
+            },
+            "size": {
+              "0": 415.5771179199219,
+              "1": 98
+            },
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [],
+                "slot_index": 0
+              },
+              {
+                "name": "CLIP",
+                "type": "CLIP",
+                "links": [],
+                "slot_index": 1
+              },
+              {
+                "name": "VAE",
+                "type": "VAE",
+                "links": [],
+                "slot_index": 2
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "CheckpointLoaderSimple"
+            },
+            "widgets_values": [
+              "Juggernaut_X_RunDiffusion.safetensors"
+            ],
+            "index": 0
+          },
+          {
+            "id": -1,
+            "type": "EmptyLatentImage",
+            "pos": {
+              "0": 389,
+              "1": 1092.9998779296875
+            },
+            "size": {
+              "0": 410.6547546386719,
+              "1": 106
+            },
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "name": "LATENT",
+                "type": "LATENT",
+                "links": [],
+                "slot_index": 0
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "EmptyLatentImage"
+            },
+            "widgets_values": [
+              1024,
+              1024,
+              1
+            ],
+            "index": 1
+          },
+          {
+            "id": -1,
+            "type": "LoraLoader",
+            "pos": {
+              "0": -4,
+              "1": 510
+            },
+            "size": {
+              "0": 315,
+              "1": 126
+            },
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "model",
+                "type": "MODEL",
+                "link": null
+              },
+              {
+                "name": "clip",
+                "type": "CLIP",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [],
+                "slot_index": 0
+              },
+              {
+                "name": "CLIP",
+                "type": "CLIP",
+                "links": [],
+                "slot_index": 1
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "LoraLoader"
+            },
+            "widgets_values": [
+              "glowneon_xl_v1.safetensors",
+              1,
+              1
+            ],
+            "index": 2
+          },
+          {
+            "id": -1,
+            "type": "CLIPTextEncode",
+            "pos": {
+              "0": 389,
+              "1": 373
+            },
+            "size": {
+              "0": 422.84503173828125,
+              "1": 164.31304931640625
+            },
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "clip",
+                "type": "CLIP",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "name": "CONDITIONING",
+                "type": "CONDITIONING",
+                "links": [],
+                "slot_index": 0
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "CLIPTextEncode"
+            },
+            "widgets_values": [
+              "glowneon, a glowing whale swimming into space ocean with sparks, blue, white, yellow"
+            ],
+            "color": "#232",
+            "bgcolor": "#353",
+            "index": 3
+          },
+          {
+            "id": -1,
+            "type": "CLIPTextEncode",
+            "pos": {
+              "0": 389,
+              "1": 572.999755859375
+            },
+            "size": {
+              "0": 425.27801513671875,
+              "1": 180.6060791015625
+            },
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "clip",
+                "type": "CLIP",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "name": "CONDITIONING",
+                "type": "CONDITIONING",
+                "links": [],
+                "slot_index": 0
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "CLIPTextEncode"
+            },
+            "widgets_values": [
+              "ugly, watermark"
+            ],
+            "color": "#322",
+            "bgcolor": "#533",
+            "index": 4
+          },
+          {
+            "id": -1,
+            "type": "KSampler",
+            "pos": {
+              "0": 389,
+              "1": 792.9996337890625
+            },
+            "size": {
+              "0": 417.42303466796875,
+              "1": 262
+            },
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "model",
+                "type": "MODEL",
+                "link": null
+              },
+              {
+                "name": "positive",
+                "type": "CONDITIONING",
+                "link": null
+              },
+              {
+                "name": "negative",
+                "type": "CONDITIONING",
+                "link": null
+              },
+              {
+                "name": "latent_image",
+                "type": "LATENT",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "name": "LATENT",
+                "type": "LATENT",
+                "links": [],
+                "slot_index": 0
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "KSampler"
+            },
+            "widgets_values": [
+              561187032580630,
+              "fixed",
+              35,
+              7,
+              "dpmpp_2m",
+              "karras",
+              1
+            ],
+            "index": 5
+          },
+          {
+            "id": -1,
+            "type": "VAEDecode",
+            "pos": {
+              "0": 678.999755859375,
+              "1": 193
+            },
+            "size": {
+              "0": 210,
+              "1": 46
+            },
+            "flags": {
+              "collapsed": true
+            },
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "samples",
+                "type": "LATENT",
+                "link": null
+              },
+              {
+                "name": "vae",
+                "type": "VAE",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [],
+                "slot_index": 0
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "VAEDecode"
+            },
+            "index": 6
+          }
+        ],
+        "links": [
+          [
+            0,
+            0,
+            2,
+            0,
+            11,
+            "MODEL"
+          ],
+          [
+            0,
+            1,
+            2,
+            1,
+            11,
+            "CLIP"
+          ],
+          [
+            2,
+            1,
+            3,
+            0,
+            17,
+            "CLIP"
+          ],
+          [
+            2,
+            1,
+            4,
+            0,
+            17,
+            "CLIP"
+          ],
+          [
+            2,
+            0,
+            5,
+            0,
+            17,
+            "MODEL"
+          ],
+          [
+            3,
+            0,
+            5,
+            1,
+            13,
+            "CONDITIONING"
+          ],
+          [
+            4,
+            0,
+            5,
+            2,
+            14,
+            "CONDITIONING"
+          ],
+          [
+            1,
+            0,
+            5,
+            3,
+            12,
+            "LATENT"
+          ],
+          [
+            5,
+            0,
+            6,
+            0,
+            15,
+            "LATENT"
+          ],
+          [
+            0,
+            2,
+            6,
+            1,
+            11,
+            "VAE"
+          ]
+        ],
+        "external": [
+          [
+            6,
+            0,
+            "IMAGE"
+          ]
+        ]
+      }
+    }
+  },
+  "version": 0.4
+}

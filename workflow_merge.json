@@ -1,0 +1,609 @@
+{
+  "last_node_id": 4,
+  "last_link_id": 2,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "SaveImage",
+      "pos": {
+        "0": 806.5932006835938,
+        "1": 90.83621215820312
+      },
+      "size": {
+        "0": 748.2265014648438,
+        "1": 675.33447265625
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 1
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "workflow>IMG2IMG",
+      "pos": {
+        "0": 386.59197998046875,
+        "1": 90.83621215820312
+      },
+      "size": {
+        "0": 406.7989196777344,
+        "1": 673.422607421875
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "workflow>IMG2IMG"
+      },
+      "widgets_values": [
+        "Juggernaut_X_RunDiffusion.safetensors",
+        "nearest-exact",
+        1024,
+        1024,
+        "disabled",
+        "closeup portait of a sci-fi warrior gengar robot, rusty metal, mech, cinematic, red eyes, dark interior background, movie scene, sharp, rim light, epic, golden hour",
+        "ugly, watermark",
+        76441298381342,
+        "fixed",
+        35,
+        7,
+        "dpmpp_2m",
+        "karras",
+        0.65
+      ]
+    },
+    {
+      "id": 4,
+      "type": "Note",
+      "pos": {
+        "0": 396.59197998046875,
+        "1": 810.8366088867188
+      },
+      "size": {
+        "0": 389.6463928222656,
+        "1": 66.42391967773438
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Change the denoise : \n0 -> image uploaded \n1 -> no image uploaded"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 2,
+      "type": "LoadImage",
+      "pos": {
+        "0": 56.15349578857422,
+        "1": 280.577392578125
+      },
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "gengar (1).png",
+        "image"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      3,
+      0,
+      1,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      2,
+      0,
+      3,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Modify a generation from an Image",
+      "bounding": [
+        38,
+        2,
+        1551,
+        907
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "groupNodes": {
+      "IMG2IMG": {
+        "nodes": [
+          {
+            "id": -1,
+            "type": "CheckpointLoaderSimple",
+            "pos": {
+              "0": 400,
+              "1": 230
+            },
+            "size": {
+              "0": 415.5771179199219,
+              "1": 98
+            },
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [],
+                "slot_index": 0
+              },
+              {
+                "name": "CLIP",
+                "type": "CLIP",
+                "links": [],
+                "slot_index": 1
+              },
+              {
+                "name": "VAE",
+                "type": "VAE",
+                "links": [],
+                "slot_index": 2
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "CheckpointLoaderSimple"
+            },
+            "widgets_values": [
+              "Juggernaut_X_RunDiffusion.safetensors"
+            ],
+            "index": 0
+          },
+          {
+            "id": -1,
+            "type": "ImageScale",
+            "pos": {
+              "0": 0,
+              "1": 540
+            },
+            "size": {
+              "0": 315,
+              "1": 130
+            },
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "image",
+                "type": "IMAGE",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [],
+                "slot_index": 0
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "ImageScale"
+            },
+            "widgets_values": [
+              "nearest-exact",
+              1024,
+              1024,
+              "disabled"
+            ],
+            "index": 1
+          },
+          {
+            "id": -1,
+            "type": "CLIPTextEncode",
+            "pos": {
+              "0": 390,
+              "1": 370
+            },
+            "size": {
+              "0": 422.84503173828125,
+              "1": 164.31304931640625
+            },
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "clip",
+                "type": "CLIP",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "name": "CONDITIONING",
+                "type": "CONDITIONING",
+                "links": [],
+                "slot_index": 0
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "CLIPTextEncode"
+            },
+            "widgets_values": [
+              "closeup portait of a sci-fi warrior gengar robot, rusty metal, mech, cinematic, red eyes, dark interior background, movie scene, sharp, rim light, epic, golden hour"
+            ],
+            "color": "#232",
+            "bgcolor": "#353",
+            "index": 2
+          },
+          {
+            "id": -1,
+            "type": "CLIPTextEncode",
+            "pos": {
+              "0": 390,
+              "1": 570
+            },
+            "size": {
+              "0": 425.27801513671875,
+              "1": 180.6060791015625
+            },
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "clip",
+                "type": "CLIP",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "name": "CONDITIONING",
+                "type": "CONDITIONING",
+                "links": [],
+                "slot_index": 0
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "CLIPTextEncode"
+            },
+            "widgets_values": [
+              "ugly, watermark"
+            ],
+            "color": "#322",
+            "bgcolor": "#533",
+            "index": 3
+          },
+          {
+            "id": -1,
+            "type": "VAEEncode",
+            "pos": {
+              "0": 110,
+              "1": 440
+            },
+            "size": {
+              "0": 210,
+              "1": 46
+            },
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "pixels",
+                "type": "IMAGE",
+                "link": null
+              },
+              {
+                "name": "vae",
+                "type": "VAE",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "name": "LATENT",
+                "type": "LATENT",
+                "links": [],
+                "slot_index": 0
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "VAEEncode"
+            },
+            "index": 4
+          },
+          {
+            "id": -1,
+            "type": "KSampler",
+            "pos": {
+              "0": 390,
+              "1": 800
+            },
+            "size": {
+              "0": 417.42303466796875,
+              "1": 262
+            },
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "model",
+                "type": "MODEL",
+                "link": null
+              },
+              {
+                "name": "positive",
+                "type": "CONDITIONING",
+                "link": null
+              },
+              {
+                "name": "negative",
+                "type": "CONDITIONING",
+                "link": null
+              },
+              {
+                "name": "latent_image",
+                "type": "LATENT",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "name": "LATENT",
+                "type": "LATENT",
+                "links": [],
+                "slot_index": 0
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "KSampler"
+            },
+            "widgets_values": [
+              76441298381342,
+              "fixed",
+              35,
+              7,
+              "dpmpp_2m",
+              "karras",
+              1
+            ],
+            "index": 5
+          },
+          {
+            "id": -1,
+            "type": "VAEDecode",
+            "pos": {
+              "0": 680,
+              "1": 190
+            },
+            "size": {
+              "0": 210,
+              "1": 46
+            },
+            "flags": {
+              "collapsed": true
+            },
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "samples",
+                "type": "LATENT",
+                "link": null
+              },
+              {
+                "name": "vae",
+                "type": "VAE",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [],
+                "slot_index": 0
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "VAEDecode"
+            },
+            "index": 6
+          }
+        ],
+        "links": [
+          [
+            0,
+            1,
+            2,
+            0,
+            11,
+            "CLIP"
+          ],
+          [
+            0,
+            1,
+            3,
+            0,
+            11,
+            "CLIP"
+          ],
+          [
+            1,
+            0,
+            4,
+            0,
+            13,
+            "IMAGE"
+          ],
+          [
+            0,
+            2,
+            4,
+            1,
+            11,
+            "VAE"
+          ],
+          [
+            0,
+            0,
+            5,
+            0,
+            11,
+            "MODEL"
+          ],
+          [
+            2,
+            0,
+            5,
+            1,
+            14,
+            "CONDITIONING"
+          ],
+          [
+            3,
+            0,
+            5,
+            2,
+            18,
+            "CONDITIONING"
+          ],
+          [
+            4,
+            0,
+            5,
+            3,
+            19,
+            "LATENT"
+          ],
+          [
+            5,
+            0,
+            6,
+            0,
+            15,
+            "LATENT"
+          ],
+          [
+            0,
+            2,
+            6,
+            1,
+            11,
+            "VAE"
+          ]
+        ],
+        "external": [
+          [
+            null,
+            0,
+            "IMAGE"
+          ]
+        ],
+        "config": {
+          "0": {},
+          "1": {
+            "input": {
+              "upscale_method": {
+                "visible": false
+              },
+              "width": {
+                "visible": true
+              },
+              "height": {
+                "visible": true
+              },
+              "crop": {
+                "visible": false
+              }
+            }
+          },
+          "2": {},
+          "3": {},
+          "4": {},
+          "5": {},
+          "6": {}
+        }
+      }
+    }
+  },
+  "version": 0.4
+}

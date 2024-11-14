@@ -1,0 +1,859 @@
+{
+  "last_node_id": 17,
+  "last_link_id": 18,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "KSampler",
+      "pos": {
+        "0": 1025.1026611328125,
+        "1": 17.00811004638672
+      },
+      "size": {
+        "0": 315,
+        "1": 262
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 2
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 3
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            7
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        998346659522840,
+        "randomize",
+        30,
+        7,
+        "dpmpp_2m",
+        "karras",
+        1
+      ]
+    },
+    {
+      "id": 3,
+      "type": "EmptyLatentImage",
+      "pos": {
+        "0": 295.10345458984375,
+        "1": 467.0082092285156
+      },
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            4
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 4,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 185.10362243652344,
+        "1": 7.008102893829346
+      },
+      "size": {
+        "0": 422.84503173828125,
+        "1": 164.31304931640625
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            13
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "anime illustation of a rabbit in automn sitting on a large rock at the edge of a serene river, where lush and wildflowers surround the riverbank, and a sky full of clouds, and ripples in the water where it has been splashing its paws."
+      ]
+    },
+    {
+      "id": 5,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 185.10362243652344,
+        "1": 227.0083770751953
+      },
+      "size": {
+        "0": 425.27801513671875,
+        "1": 180.6060791015625
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 6
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            14
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "ugly, watermark"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "VAEDecode",
+      "pos": {
+        "0": 1375.1031494140625,
+        "1": 17.00811004638672
+      },
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            9
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 7,
+      "type": "SaveImage",
+      "pos": {
+        "0": 1375.1031494140625,
+        "1": 117.00868225097656
+      },
+      "size": {
+        "0": 639.9179077148438,
+        "1": 692.9110107421875
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 9
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "LoadImage",
+      "pos": {
+        "0": -24.896503448486328,
+        "1": 627.008056640625
+      },
+      "size": {
+        "0": 354.76434326171875,
+        "1": 374.12799072265625
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            17,
+            18
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00148_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 695.1036376953125,
+        "1": 627.008056640625
+      },
+      "size": {
+        "0": 140,
+        "1": 246
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 10
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 10,
+      "type": "CR Multi-ControlNet Stack",
+      "pos": {
+        "0": 865.1034545898438,
+        "1": 617.0079345703125
+      },
+      "size": {
+        "0": 419.9042663574219,
+        "1": 457.1679992675781
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image_1",
+          "type": "IMAGE",
+          "link": 11,
+          "shape": 7
+        },
+        {
+          "name": "image_2",
+          "type": "IMAGE",
+          "link": 12,
+          "shape": 7
+        },
+        {
+          "name": "image_3",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "controlnet_stack",
+          "type": "CONTROL_NET_STACK",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONTROLNET_STACK",
+          "type": "CONTROL_NET_STACK",
+          "links": [
+            15
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Multi-ControlNet Stack"
+      },
+      "widgets_values": [
+        "On",
+        "diffusion_pytorch_model_promax.safetensors",
+        1,
+        0,
+        1,
+        "On",
+        "diffusion_pytorch_model_promax.safetensors",
+        1,
+        0,
+        1,
+        "Off",
+        "diffusion_pytorch_model_promax.safetensors",
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 11,
+      "type": "CR Apply Multi-ControlNet",
+      "pos": {
+        "0": 655.1036987304688,
+        "1": 107.0086669921875
+      },
+      "size": {
+        "0": 330,
+        "1": 98
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "base_positive",
+          "type": "CONDITIONING",
+          "link": 13
+        },
+        {
+          "name": "base_negative",
+          "type": "CONDITIONING",
+          "link": 14
+        },
+        {
+          "name": "controlnet_stack",
+          "type": "CONTROL_NET_STACK",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "base_pos",
+          "type": "CONDITIONING",
+          "links": [
+            2
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "base_neg",
+          "type": "CONDITIONING",
+          "links": [
+            3
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Apply Multi-ControlNet"
+      },
+      "widgets_values": [
+        "On"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 695.1036376953125,
+        "1": 937.005126953125
+      },
+      "size": {
+        "0": 140,
+        "1": 246
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 16
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 13,
+      "type": "Note",
+      "pos": {
+        "0": 765.103515625,
+        "1": 247.00784301757812
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "You Can Turn the switch on/off"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 14,
+      "type": "Note",
+      "pos": {
+        "0": 355.1034240722656,
+        "1": 1047.003173828125
+      },
+      "size": {
+        "0": 312.78460693359375,
+        "1": 77.64431762695312
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Combine different preprocessors, such as Canny with Depth or Canny with Pose, depending on the image. Try various combinations."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 15,
+      "type": "Note",
+      "pos": {
+        "0": 865.1034545898438,
+        "1": 1107.003173828125
+      },
+      "size": {
+        "0": 413.984619140625,
+        "1": 66.4443130493164
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "You can use up to three different control nets and turn them off using swtich_1, switch_2, switch_3"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 16,
+      "type": "AIO_Preprocessor",
+      "pos": {
+        "0": 355.1034240722656,
+        "1": 657.008056640625
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            10,
+            11
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AIO_Preprocessor"
+      },
+      "widgets_values": [
+        "CannyEdgePreprocessor",
+        1024
+      ]
+    },
+    {
+      "id": 17,
+      "type": "AIO_Preprocessor",
+      "pos": {
+        "0": 355.1034240722656,
+        "1": 877.0062255859375
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 18
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            12,
+            16
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AIO_Preprocessor"
+      },
+      "widgets_values": [
+        "DepthAnythingPreprocessor",
+        1024
+      ]
+    },
+    {
+      "id": 2,
+      "type": "CheckpointLoaderSimple",
+      "pos": {
+        "0": -235,
+        "1": 7
+      },
+      "size": {
+        "0": 379.97589111328125,
+        "1": 98
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            5,
+            6
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            8
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "Juggernaut_X_RunDiffusion.safetensors"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      1,
+      0,
+      "MODEL"
+    ],
+    [
+      2,
+      11,
+      0,
+      1,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      3,
+      11,
+      1,
+      1,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      4,
+      3,
+      0,
+      1,
+      3,
+      "LATENT"
+    ],
+    [
+      5,
+      2,
+      1,
+      4,
+      0,
+      "CLIP"
+    ],
+    [
+      6,
+      2,
+      1,
+      5,
+      0,
+      "CLIP"
+    ],
+    [
+      7,
+      1,
+      0,
+      6,
+      0,
+      "LATENT"
+    ],
+    [
+      8,
+      2,
+      2,
+      6,
+      1,
+      "VAE"
+    ],
+    [
+      9,
+      6,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      10,
+      16,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      11,
+      16,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      12,
+      17,
+      0,
+      10,
+      1,
+      "IMAGE"
+    ],
+    [
+      13,
+      4,
+      0,
+      11,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      14,
+      5,
+      0,
+      11,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      15,
+      10,
+      0,
+      11,
+      2,
+      "CONTROL_NET_STACK"
+    ],
+    [
+      16,
+      17,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      17,
+      8,
+      0,
+      16,
+      0,
+      "IMAGE"
+    ],
+    [
+      18,
+      8,
+      0,
+      17,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Change by imposing spatial conditions (ControlNet)",
+      "bounding": [
+        -277,
+        -100,
+        2351,
+        1320
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7513148009015777,
+      "offset": [
+        335.96500000000015,
+        179.40200000000016
+      ]
+    }
+  },
+  "version": 0.4
+}

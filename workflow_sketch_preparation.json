@@ -1,0 +1,633 @@
+{
+  "last_node_id": 14,
+  "last_link_id": 9,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "easy showAnything",
+      "pos": {
+        "0": 654.022216796875,
+        "1": 301.74932861328125
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 1,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Preview Resolution",
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "1152 x 896"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "Label (rgthree)",
+      "pos": {
+        "0": 84.0223388671875,
+        "1": 451.74920654296875
+      },
+      "size": {
+        "0": 146.7578125,
+        "1": 24
+      },
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "1. Upload an image\n",
+      "properties": {
+        "fontSize": 16,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "center",
+        "backgroundColor": "",
+        "padding": 4,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 4,
+      "type": "Label (rgthree)",
+      "pos": {
+        "0": 374.0223388671875,
+        "1": 321.74932861328125
+      },
+      "size": {
+        "0": 190.3359375,
+        "1": 24
+      },
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "2. Choose an aspect ratio\n",
+      "properties": {
+        "fontSize": 16,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "center",
+        "backgroundColor": "",
+        "padding": 4,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 5,
+      "type": "Image Filter Adjustments",
+      "pos": {
+        "0": 1294.0234375,
+        "1": 121.74954223632812
+      },
+      "size": {
+        "0": 210,
+        "1": 226
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            3,
+            5
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image Filter Adjustments"
+      },
+      "widgets_values": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        "true"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "SaveImage",
+      "pos": {
+        "0": 1524.0234375,
+        "1": 121.74954223632812
+      },
+      "size": {
+        "0": 295.824951171875,
+        "1": 342.9135437011719
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 3
+        }
+      ],
+      "outputs": [],
+      "title": "Save Edited Image",
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "Image Comparer (rgthree)",
+      "pos": {
+        "0": 1894.02294921875,
+        "1": 101.74954223632812
+      },
+      "size": {
+        "0": 649.4041137695312,
+        "1": 694.4627075195312
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_a",
+          "type": "IMAGE",
+          "link": 4,
+          "dir": 3
+        },
+        {
+          "name": "image_b",
+          "type": "IMAGE",
+          "link": 5,
+          "dir": 3
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "comparer_mode": "Slide"
+      },
+      "widgets_values": [
+        [
+          {
+            "name": "A",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_otzgp_00015_.png&type=temp&subfolder=&rand=0.08489748623967275"
+          },
+          {
+            "name": "B",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_otzgp_00016_.png&type=temp&subfolder=&rand=0.0885094592908513"
+          }
+        ]
+      ]
+    },
+    {
+      "id": 8,
+      "type": "Label (rgthree)",
+      "pos": {
+        "0": 1334.023681640625,
+        "1": 361.74920654296875
+      },
+      "size": {
+        "0": 132.515625,
+        "1": 88
+      },
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "4. Adjust Settings\nBrightness\nContrast\nsaturation\nedge_enhance\n",
+      "properties": {
+        "fontSize": 16,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "center",
+        "backgroundColor": "",
+        "padding": 4,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 9,
+      "type": "ImageScale",
+      "pos": {
+        "0": 654.022216796875,
+        "1": 111.74954223632812
+      },
+      "size": {
+        "0": 315,
+        "1": 130
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 6
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 7,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 8,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2,
+            4,
+            9
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Upscale Image & Crop",
+      "properties": {
+        "Node name for S&R": "ImageScale"
+      },
+      "widgets_values": [
+        "lanczos",
+        1024,
+        1024,
+        "center"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 984.0236206054688,
+        "1": 111.74954223632812
+      },
+      "size": {
+        "0": 294,
+        "1": 313.5727233886719
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 9
+        }
+      ],
+      "outputs": [],
+      "title": "Preview Image after Crop and Resize",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 11,
+      "type": "FluxResolutionNode",
+      "pos": {
+        "0": 304.0223388671875,
+        "1": 141.74954223632812
+      },
+      "size": {
+        "0": 327.5999755859375,
+        "1": 170
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            7
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            8
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "resolution",
+          "type": "STRING",
+          "links": [
+            1
+          ],
+          "slot_index": 2,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FluxResolutionNode"
+      },
+      "widgets_values": [
+        "1.0",
+        "4:3 (Classic Landscape)",
+        false,
+        "1:1"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "Label (rgthree)",
+      "pos": {
+        "0": 914.0232543945312,
+        "1": 451.74920654296875
+      },
+      "size": {
+        "0": 436.2109375,
+        "1": 24
+      },
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "3. Check the image, change aspect ratio if doesn't look good\n",
+      "properties": {
+        "fontSize": 16,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "center",
+        "backgroundColor": "",
+        "padding": 4,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 13,
+      "type": "Label (rgthree)",
+      "pos": {
+        "0": 1444.0234375,
+        "1": 481.749267578125
+      },
+      "size": {
+        "0": 441.578125,
+        "1": 56
+      },
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "6. The Image is saved\nor you can right click on it\nand Copy Image and Ctrl+V in other workflow on Load Image\n",
+      "properties": {
+        "fontSize": 16,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "center",
+        "backgroundColor": "",
+        "padding": 4,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 14,
+      "type": "Label (rgthree)",
+      "pos": {
+        "0": 2064.022705078125,
+        "1": 811.749755859375
+      },
+      "size": {
+        "0": 345.0703125,
+        "1": 24
+      },
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Move the Mouse Left and Right Over the Image\n",
+      "properties": {
+        "fontSize": 16,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "center",
+        "backgroundColor": "",
+        "padding": 4,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": {
+        "0": 34.332763671875,
+        "1": 101.33450317382812
+      },
+      "size": {
+        "0": 241.61033630371094,
+        "1": 331.792724609375
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            6
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "sketch_dragon.jpg",
+        "image"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      11,
+      2,
+      2,
+      0,
+      "*"
+    ],
+    [
+      2,
+      9,
+      0,
+      5,
+      0,
+      "IMAGE"
+    ],
+    [
+      3,
+      5,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      4,
+      9,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      5,
+      5,
+      0,
+      7,
+      1,
+      "IMAGE"
+    ],
+    [
+      6,
+      1,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      7,
+      11,
+      0,
+      9,
+      1,
+      "INT"
+    ],
+    [
+      8,
+      11,
+      1,
+      9,
+      2,
+      "INT"
+    ],
+    [
+      9,
+      9,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Sketch preparation",
+      "bounding": [
+        4,
+        8,
+        2593,
+        860
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1,
+      "offset": [
+        0,
+        0
+      ]
+    }
+  },
+  "version": 0.4
+}
