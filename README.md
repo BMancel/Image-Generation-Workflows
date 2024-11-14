@@ -300,7 +300,7 @@ Swap the base model to change the general approach to image generation.
 
 - **Try a flux model (Schnell)**
 
-|||||||||||||||||||||||||||||||||| IMAGE |||||||||||||||||||||||||||||||||||||||||||
+![image](https://github.com/user-attachments/assets/28d67b37-c4d1-46f0-87c6-e7af6bd4705e)
 
 **Goal**
 
