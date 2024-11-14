@@ -114,7 +114,7 @@ upscale_models
 
 - **Generate a prompt from a text**
 
-|||||||||||||||||||||||||||||||||| IMAGE |||||||||||||||||||||||||||||||||||||||||||
+![image](https://github.com/user-attachments/assets/7b81feb0-7641-49a0-9d1b-7c318472ff95)
 
 **Goal**
 
@@ -140,7 +140,7 @@ The basic scene idea text can be customized to any other subject or scene.
 
 - **Generate a prompt from an existed image**
 
-|||||||||||||||||||||||||||||||||| IMAGE |||||||||||||||||||||||||||||||||||||||||||
+![image](https://github.com/user-attachments/assets/dfc62194-74bd-4dec-8172-6ec50abe2a43)
 
 **Goal**
 
@@ -168,7 +168,7 @@ Ithe task parameter allows you to select the level of detail for the generated c
 
 - **Basic generation**
 
-|||||||||||||||||||||||||||||||||| IMAGE |||||||||||||||||||||||||||||||||||||||||||
+![image](https://github.com/user-attachments/assets/fe6715d4-b0fe-44d2-9385-8f8ccd63e1e8)
 
 **Goal**
 
@@ -208,7 +208,7 @@ Specific text inputs that shape the subject matter and attributes of the generat
 
 - **With watermark or overlay**
 
-|||||||||||||||||||||||||||||||||| IMAGE |||||||||||||||||||||||||||||||||||||||||||
+![image](https://github.com/user-attachments/assets/f5839b04-2c8a-41de-a8d1-aeb749694c05)
 
 **Goal**
 
@@ -258,7 +258,7 @@ Additional adjustments for overlay positioning and text font can be configured.
 
 - **Use a LoRA**
 
-|||||||||||||||||||||||||||||||||| IMAGE |||||||||||||||||||||||||||||||||||||||||||
+![image](https://github.com/user-attachments/assets/98b579d9-f425-465c-bfe6-2792146fbdb8)
 
 **Goal**
 
@@ -341,7 +341,7 @@ This component loads the CLIP model to condition the text prompt, helping the mo
 
 - **Upscale an image**
 
-|||||||||||||||||||||||||||||||||| IMAGE |||||||||||||||||||||||||||||||||||||||||||
+![image](https://github.com/user-attachments/assets/83492600-0067-4924-a2fd-723e977ca95e)
 
 **Goal**
 
@@ -375,7 +375,7 @@ Else : 4x_NMKD-Siax_200k
 
 - **Impose spatial conditions (ControlNet)**
 
-|||||||||||||||||||||||||||||||||| IMAGE |||||||||||||||||||||||||||||||||||||||||||
+![image](https://github.com/user-attachments/assets/bfd60888-33e0-4357-a821-d34640882e6e)
 
 **Goal**
 
@@ -405,7 +405,7 @@ Users can select and activate different control layers (e.g., edge detection, de
 
 - **Merge 2 images**
 
-|||||||||||||||||||||||||||||||||| IMAGE |||||||||||||||||||||||||||||||||||||||||||
+![image](https://github.com/user-attachments/assets/1ae16c29-5a01-40be-89ae-1d8c6c065e22)
 
 **Goal**
 
@@ -439,7 +439,7 @@ A value between 0 and 1. This affects how closely the output image follows the u
 
 - **Use a cartoon model**
 
-|||||||||||||||||||||||||||||||||| IMAGE |||||||||||||||||||||||||||||||||||||||||||
+![image](https://github.com/user-attachments/assets/a8758a95-099d-40c5-984d-14eea23a3835)
 
 **Goal**
 
@@ -491,7 +491,7 @@ Includes specific model settings and strength percentages for precise control.
 
 - **Create a seamless pattern**
 
-|||||||||||||||||||||||||||||||||| IMAGE |||||||||||||||||||||||||||||||||||||||||||
+![image](https://github.com/user-attachments/assets/f3203775-1baa-4860-ae28-c3107b71b0d9)
 
 **Goal**
 
@@ -531,7 +531,7 @@ You can adjust the size of the generated pattern by changing the width and heigh
 
 - **Change a part of the image**
 
-|||||||||||||||||||||||||||||||||| IMAGE |||||||||||||||||||||||||||||||||||||||||||
+![image](https://github.com/user-attachments/assets/3a6b8789-e3ff-4410-92f9-345d9cd5ff9d)
 
 **Goal**
 
@@ -581,7 +581,7 @@ Modify text prompts to change the features, style, or characteristics of the inp
 
 - **Expand the image**
 
-|||||||||||||||||||||||||||||||||| IMAGE |||||||||||||||||||||||||||||||||||||||||||
+![image](https://github.com/user-attachments/assets/db840aad-255b-4b7b-9512-2a62ef850f38)
 
 **Goal**
 
@@ -629,7 +629,7 @@ In the InpaintCrop node, adjust how the input image is resized and cropped befor
 
 - **Preparation**
 
-|||||||||||||||||||||||||||||||||| IMAGE |||||||||||||||||||||||||||||||||||||||||||
+![image](https://github.com/user-attachments/assets/24decd19-c7b2-4d4a-af9c-8b44021eeb93)
 
 **Goal**
 
@@ -667,7 +667,7 @@ Users can modify brightness, contrast, saturation, and edge enhancement through 
 
 - **Variation**
 
-|||||||||||||||||||||||||||||||||| IMAGE |||||||||||||||||||||||||||||||||||||||||||
+![image](https://github.com/user-attachments/assets/b3530412-abc4-4b88-8e0e-1154553d4e38)
 
 **Goal**
 
@@ -705,7 +705,7 @@ Denoising levels can be adjusted to either preserve more detail or create smooth
 
 - **Generate an image from a Sketch**
 
-|||||||||||||||||||||||||||||||||| IMAGE |||||||||||||||||||||||||||||||||||||||||||
+![image](https://github.com/user-attachments/assets/1276ce52-50b7-4f44-abd4-ef62af8bae78)
 
 **Goal**
 
@@ -751,7 +751,7 @@ Control parameters like strength (e.g., 0.8) for precise adjustments to the tran
 
 - **Generate an image from a drawing**
 
-|||||||||||||||||||||||||||||||||| IMAGE |||||||||||||||||||||||||||||||||||||||||||
+![image](https://github.com/user-attachments/assets/bda78d31-b845-4c4e-a504-1db00c475ff8)
 
 **Goal**
 
